@@ -1,6 +1,6 @@
 # import oop.Chef as chef
 
-from oop.Chef import Chef,ChineseChef
+from oop.intro.Chef import Chef,ChineseChef
 
 cf1 = Chef()
 cf2 = ChineseChef()
