@@ -1,4 +1,4 @@
-from oop.Question import Question
+from oop.intro.Question import Question
 
 question_prompt = [
     "sadfasdfas1",

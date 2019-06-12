@@ -1,4 +1,4 @@
-from oop.Student import Student
+from oop.intro.Student import Student
 
 stu1 = Student("Athens","Business", 3.8, False)
 
