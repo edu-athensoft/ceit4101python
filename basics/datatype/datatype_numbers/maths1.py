@@ -6,6 +6,9 @@ print(math.pi)
 # Output: -1.0
 print(math.cos(math.pi))
 
+# Output: square root
+print(math.sqrt(7))
+
 # Output: 22026.465794806718
 print(math.exp(10))
 
@@ -17,4 +20,7 @@ print(math.sinh(1))
 
 # Output: 720
 print(math.factorial(6))
+
+# Output: gcd stands for Greatest Common Divisor
+print(math.gcd(12,6))
 
