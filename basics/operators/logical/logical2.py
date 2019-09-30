@@ -1,17 +1,24 @@
-# boolean
-print('==== Data type : boolean ====')
+x = True
+y = False
 
-# boolean value
-print('boolean values, case sensitive')
-b1 = True
-print("boolean b1 = {}".format(b1))
+print("x={}, y={}".format(x,y))
 
-b2 = False
-print("boolean b2 = {}".format(b2))
+# Output: x and y is False
+print('x and y is',x and y)
+
+# Output: x or y is True
+print('x or y is',x or y)
+
+# Output: not x is False
+print('not x is',not x)
+
 
 # boolean expression
 print()
 print('boolean expression')
+b1 = False
+b2 = True
+
 expr1 = b1 and b2
 print("b1 and b2 = {}".format(expr1))
 
