@@ -9,5 +9,5 @@ IMPORTANT!  please try this in the interactive mode
 """
 
 # flush=True
-f = open("123.txt", "w")
+f = open("456.txt", "w")
 print("123456789", file = f, flush=True)

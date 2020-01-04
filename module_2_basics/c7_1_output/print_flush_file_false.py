@@ -11,3 +11,4 @@ IMPORTANT!  please try this in the interactive mode
 # flush=False
 f = open("123.txt", "w")
 print("123456789", file = f)
+# f.close()
