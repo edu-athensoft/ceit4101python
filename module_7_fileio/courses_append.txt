@@ -4,3 +4,5 @@ ceit4101 python
 
 ceit1912 java web
 ceit1912 java web
+ceit8391 auto testing
+ceit8391 auto testing
