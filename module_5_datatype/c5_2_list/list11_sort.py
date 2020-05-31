@@ -19,3 +19,7 @@ print(my_list)
 my_list = ['3','a','2','c','1','b']
 my_list.sort()
 print(my_list)
+
+# ascending, descending
+my_list.sort(reverse=True)
+print(my_list)
