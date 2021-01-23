@@ -6,6 +6,7 @@ Python has strftime() and strptime() methods to handle this.
 
 strftime() method is defined under classes date, datetime and time
 
+The strftime() method returns a string representing date and time using date, time or datetime object.
 """
 
 """
