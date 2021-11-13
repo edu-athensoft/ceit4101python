@@ -23,7 +23,7 @@ def bgUpdate(source):
 
 
 root = Tk()
-root.title("Ex")
+root.title("Python GUI - Scale")
 root.geometry("360x240")
 rSlider = Scale(root, from_=0, to=255, label="R", tickinterval = 10,\
                 resolution=1, troughcolor="red", command=bgUpdate)
