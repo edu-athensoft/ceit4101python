@@ -41,7 +41,7 @@ notes:
 6. output
 """
 
-import myexam.stem1402_final_b.dataset as dataset
+import dataset
 
 
 def listwords(wordlist):

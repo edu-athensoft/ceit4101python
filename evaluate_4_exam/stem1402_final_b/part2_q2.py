@@ -12,7 +12,7 @@ def getmax(x,y):
 results = [['Robert Master',220,340],
           ['Montreal Sprite',320,270],
           ['Smart Maker',115,405],
-          ['Nova Robert',450,480],
+          ['Nova Robert',450,380],
           ['10 Stars',100,330]]
 
 # calculate the higher score for each team
@@ -28,7 +28,7 @@ results.sort(key=(lambda item: item[3]), reverse=True)
 # output result
 count = 0
 for team in results:
-    if count < 3:
+    if count < 5:
         # print(team)
         print(f"Place #{count+1} is: {team[0]} at {team[3]}")
     count += 1

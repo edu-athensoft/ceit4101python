@@ -1,0 +1,46 @@
+version: 1
+disable_existing_loggers: true
+
+formatters:
+  standard:
+    format: '%(asctime)s [%(levelname)s] %(name)s:%(message)s'
+
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: standard
+    stream: ext://sys.stdout
+
+  file_handler:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: ./logs/sample2.log
+    encoding: utf8
+
+
+loggers:
+  root:
+    handlers:
+      - console
+    level: WARNING
+    propagate: false
+
+  __main__:
+    handlers: [console, file_handler]
+    level: DEBUG
+    propagate: false
+
+  main2:
+    handlers: [console, file_handler]
+    level: DEBUG
+    propagate: false
+
+  app2:
+    handlers: [ console, file_handler ]
+    level: ERROR
+    propagate: false
+
+

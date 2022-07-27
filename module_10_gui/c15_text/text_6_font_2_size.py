@@ -15,25 +15,25 @@ from tkinter.font import Font
 def countlines(event):
     (line, c) = map(int, event.widget.index("end-1c").split("."))
     # print(line, c)
-    status_text1 = f"Status: INSERT MODE  ROW:{line},COL:{c}"
+    status_text1 = f"Status: INSERT MODE  ROW:{line}, COL:{c+1}"
     var.set(status_text1)
 
 
-def func1():
+def tool_open():
     str_status = var.get()
     status_text2 = ' ' * 5 + "Open was called."
     var.set(status_text1 + status_text2)
     status_text2 = ''
 
 
-def func2():
+def tool_save():
     str_status = var.get()
     status_text2 = ' ' * 5 + "Save was called."
     var.set(status_text1 + status_text2)
     status_text2 = ''
 
 
-def func3():
+def tool_copy():
     str_status = var.get()
     status_text2 = ' ' * 5 + "Copy was called."
     var.set(status_text1 + status_text2)
@@ -41,7 +41,7 @@ def func3():
     copy()
 
 
-def func4():
+def tool_cut():
     str_status = var.get()
     status_text2 = ' ' * 5 + "Cut was called."
     var.set(status_text1 + status_text2)
@@ -49,7 +49,7 @@ def func4():
     cut()
 
 
-def func5():
+def tool_paste():
     str_status = var.get()
     status_text2 = ' ' * 5 + "Paste was called."
     var.set(status_text1 + status_text2)
@@ -62,15 +62,15 @@ def newfile():
 
 
 def openfile():
-    messagebox.showinfo("File", "New File")
+    messagebox.showinfo("File", "Open File")
 
 
 def save():
-    messagebox.showinfo("File", "New File")
+    messagebox.showinfo("File", "Save")
 
 
 def saveas():
-    messagebox.showinfo("File", "New File")
+    messagebox.showinfo("File", "Save as")
 
 
 def copy():
@@ -110,6 +110,7 @@ def change_fontsize(event):
     text.configure(font=f)
 
 
+# main
 root = Tk()
 root.title("Athensoft Python Course | My Text Editor")
 root.geometry("640x480+300+300")
@@ -160,22 +161,22 @@ root.bind("<Button-3>", showPopupMenu)
 frame_toolbar = Frame(root, height=30)
 frame_toolbar.pack(anchor=W)
 
-btn1 = Button(frame_toolbar, text='Open', command=func1, relief='flat')
+btn1 = Button(frame_toolbar, text='Open', command=tool_open, relief='flat')
 btn1.pack(side=LEFT)
 
-btn2 = Button(frame_toolbar, text='Save', command=func2, relief='flat')
+btn2 = Button(frame_toolbar, text='Save', command=tool_save, relief='flat')
 btn2.pack(side=LEFT)
 
-btn3 = Button(frame_toolbar, text='Copy', command=func3, relief='flat')
+btn3 = Button(frame_toolbar, text='Copy', command=tool_copy, relief='flat')
 btn3.pack(side=LEFT)
 
-btn4 = Button(frame_toolbar, text='Cut', command=func4, relief='flat')
+btn4 = Button(frame_toolbar, text='Cut', command=tool_cut, relief='flat')
 btn4.pack(side=LEFT)
 
-btn5 = Button(frame_toolbar, text='Paste', command=func5, relief='flat')
+btn5 = Button(frame_toolbar, text='Paste', command=tool_paste, relief='flat')
 btn5.pack(side=LEFT)
 
-# arrow for optionmenu
+# arrow for option menu
 arrow = PhotoImage(file='arrow.png')
 
 # font family
@@ -217,7 +218,7 @@ text.config(yscrollcommand=yscrollbar.set)
 # listening
 text.bind("<KeyRelease>", countlines)
 
-# textarea frame
+# status bar
 frame_status = Frame(root)
 frame_status.pack(anchor=CENTER, fill=X)
 
@@ -225,7 +226,7 @@ frame_status.pack(anchor=CENTER, fill=X)
 sep = Separator(frame_status, orient=HORIZONTAL)
 sep.pack(fill=X, padx=1)
 
-# status bar
+# text on status bar
 var = StringVar()
 
 # for mode and position
