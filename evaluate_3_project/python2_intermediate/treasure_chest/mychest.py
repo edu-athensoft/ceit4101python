@@ -25,7 +25,10 @@ def create_chest():
 
     list1 = [ITEM1] * 638
     list2 = [ITEM2] * 250
-    chest = list1 + list2
+    list3 = [ITEM3] * 100
+    list4 = [ITEM4] * 10
+    list5 = [ITEM5] * 2
+    chest = list1 + list2+list3+ list4+list5
     random.shuffle(chest)
     return chest
 

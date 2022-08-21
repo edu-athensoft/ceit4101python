@@ -1,11 +1,12 @@
 """
-python file I/O
+Module 8:   File I/O
+Author:     Athensoft inc.
 
-Opening Files
-open()
+Open a file at a specified location
+on Windows
 
-first look
-
+open() - open a file
+close() - close a file
 """
 
 # case 3. open file in specified full path
