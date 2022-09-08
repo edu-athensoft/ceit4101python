@@ -1,13 +1,18 @@
 """
 datetime module
 date class
+datetime.date
 
 create a date object to represent a date
 
+Anti-example
+
 """
 
-# only import date class from the datetime module
 from datetime import date
 
-a = date(2019, 4, 13)
-print(a)
+# error: no padding zero
+# d = date(2015, 03, 30)
+# print(d)
+
+

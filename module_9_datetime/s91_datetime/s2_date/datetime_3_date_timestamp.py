@@ -11,5 +11,5 @@ between a particular date and January 1, 1970 at UTC.
 from datetime import date
 
 # Get date from a timestamp
-timestamp = date.fromtimestamp(1606244364)
+timestamp = date.fromtimestamp(1326244364)
 print("Date =", timestamp)

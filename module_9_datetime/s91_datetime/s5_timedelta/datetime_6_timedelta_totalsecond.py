@@ -2,8 +2,11 @@
 datetime module
 timedelta class
 
+1.5.6 Time duration in seconds
+
 You can also find sum of two dates and times using + operator.
 Also, you can multiply and divide a timedelta object by integers and floats.
+
 """
 
 # Time duration in seconds
