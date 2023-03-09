@@ -1,0 +1,5 @@
+2022-05-02 17:44:28,099 - DEBUG - msg: debug x = 99
+2022-05-02 17:44:28,099 - INFO - msg: info
+2022-05-02 17:44:28,099 - WARNING - msg: warning
+2022-05-02 17:44:28,099 - ERROR - msg: error
+2022-05-02 17:44:28,099 - CRITICAL - msg: critical

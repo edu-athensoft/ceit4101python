@@ -1,0 +1,5 @@
+2022-05-03 02:14:05,150 - __main__ - DEBUG - test the custom logger
+2022-05-03 02:14:05,150 - __main__ - INFO - test the custom logger
+2022-05-03 02:14:05,150 - __main__ - WARNING - test the custom logger
+2022-05-03 02:14:05,150 - __main__ - ERROR - test the custom logger
+2022-05-03 02:14:05,150 - __main__ - CRITICAL - test the custom logger

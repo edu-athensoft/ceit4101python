@@ -6,14 +6,12 @@ test a group of strings
 
 import re
 
-
 def isMatched(pattern, targetstr):
     isMatched = re.match(pattern, targetstr)
     if isMatched:
         print(f"{targetstr} is matched.")
     else:
         print(f"{targetstr} is not matched.")
-
 
 # main
 pattern = '^a...s$'

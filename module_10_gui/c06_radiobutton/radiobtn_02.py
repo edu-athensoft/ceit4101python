@@ -17,7 +17,7 @@ root = Tk()
 root.title("Python GUI - Radiobutton")
 root.geometry("320x120")
 
-roles = {0:'Mage', 1: 'Warrior', 2: 'Archer'}
+roles = {0: 'Mage', 1: 'Warrior', 2: 'Archer'}
 var = IntVar()
 var.set(0)
 

@@ -1,0 +1,15 @@
+"""
+built-in error
+NotImplementedError
+
+"""
+
+
+
+
+
+
+
+
+
+

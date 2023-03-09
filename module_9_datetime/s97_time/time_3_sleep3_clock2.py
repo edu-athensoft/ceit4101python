@@ -22,5 +22,6 @@ while True:
   localtime = time.localtime()
   result = time.strftime("%I:%M:%S %p", localtime)
   print('\r'+result, end="", flush=True)
+  # print(''+result, end="", flush=True)
   # print("\r", end="", flush=True)
   time.sleep(1)

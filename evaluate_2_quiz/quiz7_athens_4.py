@@ -206,5 +206,3 @@ print(term_title)
 print(term_1)
 print(BLANK)
 print(term_2)
-
-

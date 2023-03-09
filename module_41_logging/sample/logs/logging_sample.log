@@ -1,0 +1,11 @@
+2022-05-03 16:42:32,888 - main - DEBUG - main() called
+2022-05-03 16:42:32,888 - main.app1 - DEBUG - Logging is configured.
+2022-05-03 16:42:32,888 - main.app1 - INFO - Logging is configured.
+2022-05-03 16:42:32,888 - main.app1 - WARNING - Logging is configured.
+2022-05-03 16:42:32,888 - main.app1 - ERROR - Logging is configured.
+2022-05-03 16:42:32,888 - main.app1 - CRITICAL - Logging is configured.
+2022-05-03 16:42:32,888 - main.app2 - DEBUG - Logging is configured.
+2022-05-03 16:42:32,888 - main.app2 - INFO - Logging is configured.
+2022-05-03 16:42:32,888 - main.app2 - WARNING - Logging is configured.
+2022-05-03 16:42:32,888 - main.app2 - ERROR - Logging is configured.
+2022-05-03 16:42:32,888 - main.app2 - CRITICAL - Logging is configured.

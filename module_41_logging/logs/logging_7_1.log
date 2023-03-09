@@ -1,0 +1,5 @@
+2022-05-02 18:01:00,822 - root - DEBUG - test the custom logger
+2022-05-02 18:01:00,822 - root - INFO - test the custom logger
+2022-05-02 18:01:00,823 - root - WARNING - test the custom logger
+2022-05-02 18:01:00,823 - root - ERROR - test the custom logger
+2022-05-02 18:01:00,823 - root - CRITICAL - test the custom logger

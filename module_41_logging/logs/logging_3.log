@@ -1,0 +1,4 @@
+INFO:root:msg: info
+WARNING:root:msg: warning
+ERROR:root:msg: error
+CRITICAL:root:msg: critical

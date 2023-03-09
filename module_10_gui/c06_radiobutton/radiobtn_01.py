@@ -7,6 +7,7 @@ default option selected
 
 from tkinter import *
 
+
 def printOption():
     label.config(text="I am a " + var.get() + ".")
 
@@ -16,10 +17,14 @@ root.title("Python GUI - Radiobutton")
 root.geometry("320x120")
 
 var = StringVar()
-# var.set("Warrior")    # set a default selected option
-var.set(None)       # select nothing
 
-label = Label(root, text="Please choose a role", bg="lightyellow", width=30)
+# set a default selected option
+var.set("Warrior")
+
+# select nothing
+# var.set(None)
+
+label = Label(root, text="Please choose a role", textvariable=var, bg="lightyellow", width=30)
 label.pack()
 
 radiobtn1 = Radiobutton(root, text="Mage", variable=var, value="Mage", command=printOption)

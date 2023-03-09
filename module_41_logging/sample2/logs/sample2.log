@@ -1,0 +1,19 @@
+2022-05-03 17:07:34,609 [DEBUG] main2:main() called
+2022-05-03 17:07:34,609 [DEBUG] main2.app1:Logging is configured.
+2022-05-03 17:07:34,609 [INFO] main2.app1:Logging is configured.
+2022-05-03 17:07:34,609 [WARNING] main2.app1:Logging is configured.
+2022-05-03 17:07:34,609 [ERROR] main2.app1:Logging is configured.
+2022-05-03 17:07:34,609 [CRITICAL] main2.app1:Logging is configured.
+2022-05-03 17:07:34,609 [DEBUG] main2.app2:Logging is configured.
+2022-05-03 17:07:34,609 [INFO] main2.app2:Logging is configured.
+2022-05-03 17:07:34,609 [WARNING] main2.app2:Logging is configured.
+2022-05-03 17:07:34,609 [ERROR] main2.app2:Logging is configured.
+2022-05-03 17:07:34,609 [CRITICAL] main2.app2:Logging is configured.
+2022-05-03 17:09:09,012 [DEBUG] main2:main() called
+2022-05-03 17:09:09,012 [DEBUG] main2.app1:Logging is configured.
+2022-05-03 17:09:09,012 [INFO] main2.app1:Logging is configured.
+2022-05-03 17:09:09,012 [WARNING] main2.app1:Logging is configured.
+2022-05-03 17:09:09,012 [ERROR] main2.app1:Logging is configured.
+2022-05-03 17:09:09,012 [CRITICAL] main2.app1:Logging is configured.
+2022-05-03 17:09:09,012 [ERROR] app2:Logging is configured.
+2022-05-03 17:09:09,012 [CRITICAL] app2:Logging is configured.

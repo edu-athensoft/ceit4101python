@@ -2,6 +2,7 @@
 
 """
 
+
 class ColorsIterator:
     def __init__(self, colors):
         self.__data = colors
@@ -22,7 +23,7 @@ class ColorsIterator:
 
 class Colors:
     def __init__(self):
-        self.data = [1,2,3]
+        self.data = ["red", "green", "blue"]
 
     def __len__(self):
         return len(self.data)
@@ -32,7 +33,6 @@ class Colors:
 colors = Colors()
 colors_iterator = ColorsIterator(colors)
 print(colors_iterator)
-
 
 for color in colors_iterator:
     print(color)

@@ -11,11 +11,11 @@ from sqlalchemy import create_engine, text
 
 # settings
 SCHEMA = 'mysql+pymysql'
-USERNAME = 'appdev'
-PASSWORD = 'athensoft2019'
-HOST = '159.203.16.118'
+USERNAME = 'stemlearner'
+PASSWORD = 'athensoft'
+HOST = '192.168.1.3'
 PORT ='3306'
-DBNAME = 'zhenzhen_db'
+DBNAME = 'stem1421pythondb'
 
 # title
 print("SQLAlchemy - engine\n")
@@ -72,3 +72,13 @@ print()
 print("keys")
 print(row.keys())
 print(list(row.keys()))
+
+
+# closing
+print("closing connection...", end="")
+conn.close()
+print("[Closed]")
+
+print("closing db engine...", end="")
+engine.dispose()
+print("[Closed]")
