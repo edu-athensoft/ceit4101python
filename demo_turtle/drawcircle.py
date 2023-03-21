@@ -1,6 +1,5 @@
 
 import turtle as turtle
-import numpy as np
 
 # turtle.begin_fill()
 turtle.setpos(0,-100)

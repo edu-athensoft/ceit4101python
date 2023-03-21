@@ -47,8 +47,8 @@ def cmd3():
         t = threading.Thread(target=drink, name='DrinkThread')
         t.start()
     except:
-        print
-        "Error: unable to start thread"
+        print("Error: unable to start thread")
+
 
 
 def cmd4():
@@ -59,8 +59,8 @@ def cmd4():
         t = threading.Thread(target=takeaway, name='TakeawayThread')
         t.start()
     except:
-        print
-        "Error: unable to start thread"
+        print("Error: unable to start thread")
+
 
 
 def cmd5():
@@ -71,8 +71,8 @@ def cmd5():
         t = threading.Thread(target=wish, name='WishThread')
         t.start()
     except:
-        print
-        "Error: unable to start thread"
+        print("Error: unable to start thread")
+
 
 root = tk.Tk()
 
