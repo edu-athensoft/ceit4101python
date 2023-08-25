@@ -74,12 +74,12 @@ def create():
     print(f"The student info {new_row} has been saved.")
 
 
-def update(studentRecord):
+def update():
     """ update a student record """
     print("update(studentRecord)")
 
 
-def deleteById(studentId):
+def deleteById():
     """ delete a student record by ID """
     print("deleteById(studentId)")
 
@@ -108,9 +108,9 @@ def main_start():
             elif option == '2':
                 create()
             elif option == '3':
-                update([])
+                update()
             elif option == '4':
-                deleteById(1)
+                deleteById()
             else:
                 print("[WARNING] Invalid option, please try again.")
 

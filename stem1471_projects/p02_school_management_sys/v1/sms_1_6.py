@@ -9,7 +9,7 @@ implement update() function
 import csv
 
 print("School Management System")
-print("ver 1.0")
+print("Ver 1.0")
 print()
 
 
@@ -152,6 +152,34 @@ def update():
 def deleteById():
     """ delete a student record by ID """
     print("deleteById(studentId)")
+
+    # input student ID
+    while True:
+        studentID = input("Student ID* : ")
+        if studentID:
+            break
+        else:
+            print("[ERROR] Please input a valid student ID!")
+
+    row_number, row  = searchById(studentID)
+    if row_number is None:
+        print("[WARNING] No such student record! Deletion aborted.")
+        return
+
+    # open CSV file and read data into a list of rows
+    with open('data/student_info.csv', mode='r') as file:
+        reader = csv.reader(file)
+        rows = list(reader)
+
+    # remove the row from the list of rows
+    deleted_row = rows.pop(row_number)
+
+    # open CSV file in write mode and write remaining rows back to the file
+    with open('data/student_info.csv', mode='w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(rows)
+
+    print(f"The row {row} has been deleted.")
 
 
 # main

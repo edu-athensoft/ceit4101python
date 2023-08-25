@@ -1,7 +1,7 @@
 """
 Athensoft Python Course Project
 Project: My Text Editor
-Version: v2
+Version: v4
 Author:  Athensoft Inc.
 """
 
