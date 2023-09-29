@@ -8,6 +8,7 @@ call each function for 3 time with different input of x (value of x)
 then print out the returned value for y
 """
 
+
 def func1a(x):
     y = 2 * x
     return y

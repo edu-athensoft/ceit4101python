@@ -36,9 +36,6 @@ result = mathfunc1(x)
 print("x={}, for y=x, result: y = {}".format(x, result))
 
 # y = 2x
-
-
-
 # y = 2x + 1
 
 

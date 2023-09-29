@@ -1,0 +1,15 @@
+Problems and Bugs
+
+1. app_student should not see mydbutil
+solution: to decoupled by refactoring
+
+2. Main program logic should be separate from business logic
+solution: to create a service tier
+
+3. Representation logic are tied to Main program logic
+solution: create a view tier, and to generate view with data being passed to
+
+
+
+
+

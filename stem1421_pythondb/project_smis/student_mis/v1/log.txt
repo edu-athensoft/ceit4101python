@@ -1,0 +1,217 @@
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1001',) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('100',) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('100',) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('100',) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1001',) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1001',) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 0 Record(s) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 4 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 0 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 5 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 6 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: (1009,) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1004',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1003',) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 6 Record(s) selected.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 6 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 7 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('9999',) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 7 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('9999',) selected.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 6 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] Connected successfully! database:smis used.
+viewAll()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 8 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1002',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1003',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1005',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1006',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1007',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1008',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('1009',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('1010',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: INSERT INTO student VALUES(%s, %s, %s, %s)
+[INFO] Record: ['1010', 'Pascal', 'Berkly', 'G11'] added.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 0 Record: ('1011',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: INSERT INTO student VALUES(%s, %s, %s, %s)
+[INFO] Record: ['1011', 'Kate', 'Kingston College', 'G12'] added.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 11 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 11 Record(s) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 11 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1004',) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE id=%s
+[INFO] 1 Record: ('1004',) selected.
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student
+[INFO] 11 Record(s) selected.
+viewById()
+[INFO] Connected successfully! database:smis used.
+[INFO] SQL: SELECT * FROM student WHERE student_name like %s
+[INFO] 1 Record(s) selected.

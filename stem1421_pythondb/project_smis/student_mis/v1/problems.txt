@@ -1,0 +1,5 @@
+Problems and Bugs
+
+1. Lack of reusability and maintainability
+Solution: apply OOP
+

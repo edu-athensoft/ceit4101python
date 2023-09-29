@@ -1,0 +1,10 @@
+Problems and Bugs
+
+1. Redundant code in Table Views when doing query(search and view)
+solution: design a unique template
+
+
+
+
+
+

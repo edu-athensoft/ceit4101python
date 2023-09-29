@@ -15,12 +15,13 @@ def simple_decorator(own_function):
 
 
 @simple_decorator
-def combiner(a, b):
+def combiner(a=0, b=0):
     print("combiner()")
     print(a+b)
 
 
-combiner(1,2)
+# combiner(1,2)
+combiner()
 
 
 
