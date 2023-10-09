@@ -10,8 +10,8 @@ class StudentDao:
     # def __init__(self, connection=None):
     #     self.conn = connection
 
-    def __init__(self, database):
-        self.conn = get_connection(database)
+    def __init__(self, database, dbhost):
+        self.conn = get_connection(db=database, dbhost=dbhost)
 
     def close(self):
         if self.conn:

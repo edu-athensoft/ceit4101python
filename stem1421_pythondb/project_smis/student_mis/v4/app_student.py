@@ -100,6 +100,7 @@ def main_start():
 # main
 if __name__ == '__main__':
     DB_NAME = "smis"
-    studentService = StudentService(DB_NAME)
+    DB_HOST = '192.168.1.3'
+    studentService = StudentService(database=DB_NAME, dbhost=DB_HOST)
     main_start()
     studentService.close()

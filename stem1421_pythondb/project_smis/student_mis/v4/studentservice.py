@@ -7,8 +7,8 @@ from viewtemplate import *
 
 
 class StudentService:
-    def __init__(self, database):
-        self.studentDao = StudentDao(database)
+    def __init__(self, database, dbhost):
+        self.studentDao = StudentDao(database, dbhost)
 
     def close(self):
         try:
@@ -22,12 +22,15 @@ class StudentService:
     def viewAll(self):
         """ view student info list """
         results = self.studentDao.get_all()
-        for student in results:
-            print(TABLE_ROW_FORMAT.format(
-                student.studentId,
-                student.studentName,
-                student.schoolName,
-                student.gradeNo))
+        if results:
+            for student in results:
+                print(TABLE_ROW_FORMAT.format(
+                    student.studentId,
+                    student.studentName,
+                    student.schoolName,
+                    student.gradeNo))
+        else:
+            print('No results')
 
     @header
     @footer
