@@ -1,6 +1,6 @@
 """
 2.3 CRUD Operations
-2.3.5 rowcount attribute
+2.3.6 show SQL string actually sent to database
 """
 import pymysql
 
@@ -16,19 +16,20 @@ try:
     # Create a cursor object
     cursor = connection.cursor()
 
-    # Execute an SQL statement (e.g., INSERT, UPDATE, DELETE)
-    sql_insert = "INSERT INTO users (username, password) VALUES (%s, %s)"
+    # Show SQL string
+    sql = "INSERT INTO users (username, password) VALUES (%s, %s)"
     values = ("Alice", '25443')
-    cursor.execute(sql_insert, values)
+    cursor.execute(sql, values)
 
-    # Get the number of rows affected by the INSERT statement
-    num_rows_affected = cursor.rowcount
+    sqlstr = cursor.mogrify(sql, values)
+    print("Show SQL string actually sent to database")
+    print(f"SQL string = {sqlstr}")
 
     # Commit the transaction
     connection.commit()
 
     # Print the result
-    print(f"Number of rows affected: {num_rows_affected}")
+    # print(f"Number of rows affected: {num_rows_affected}")
 
 finally:
     # Close the cursor and the database connection

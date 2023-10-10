@@ -17,6 +17,12 @@ cursor = conn.cursor()
 sql = "SELECT * FROM users where id = %s"
 params = (2,)
 cursor.execute(sql, params)
+
+# get SQL string
+sqlstr = cursor.mogrify(sql, params)
+print(f"SQL string = {sqlstr}")
+
+# get result
 result = cursor.fetchone()
 
 # process data
