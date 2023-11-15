@@ -1,7 +1,7 @@
 # pycharm project files
 .idea/
 
-pandasdemo/*.csv
+venv/
 
 venv/
 
