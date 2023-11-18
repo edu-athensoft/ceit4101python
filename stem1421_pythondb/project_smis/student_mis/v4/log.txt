@@ -21,3 +21,5 @@
 [DEBUG] Connected successfully! database:smis used.
 [DEBUG] Connected successfully! database:None used.
 [DEBUG] Connected successfully! database:smis used.
+[DEBUG] Connected successfully! database:None used.
+[DEBUG] Connected successfully! database:smis used.
