@@ -15,6 +15,7 @@ def task1():
         count += 1
         print(f"{thread_name}, {time.ctime(time.time())}")
 
+
 def task2():
     thread_name = 'ThreadName-2'
     duration = 2
@@ -23,6 +24,7 @@ def task2():
         time.sleep(duration)
         count += 1
         print(f"{thread_name}, {time.ctime(time.time())}")
+
 
 try:
     print("Starting main")

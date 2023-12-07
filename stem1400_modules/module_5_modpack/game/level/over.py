@@ -3,11 +3,12 @@ package:    level
 module:     over
 """
 
-import archived.py200622_python2.day11_py200727.game.image.close as imgclose
-import archived.py200622_python2.day11_py200727.game.sound.pause as sndpause
+import stem1400_modules.module_5_modpack.game.image.close as imgclose
+import stem1400_modules.module_5_modpack.game.sound.pause as sndpause
 
 
 def over():
+    print("exiting current game level...")
     print(f"level.over()")
 
     img = 'map.jpg'
@@ -22,5 +23,10 @@ def over():
     img = 'img2.png'
     imgclose.close(img)
 
+    print("\nexiting game...")
+
     music = 'bgm.mp3'
     sndpause.pause(music)
+
+    img = 'main.jpg'
+    imgclose.close(img)

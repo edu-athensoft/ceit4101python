@@ -12,5 +12,5 @@ def table(n):
 n = int(input("Enter the number?"))
 b = table(n)
 
-for i in range(1, 11):
+for i in range(1, n+1):
     print(n, "X", i, "=", b(i));

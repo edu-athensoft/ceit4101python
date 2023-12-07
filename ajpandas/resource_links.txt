@@ -1,0 +1,2 @@
+汉字对照表地址：
+https://github.com/WuChengqian520/codeSnippet.git

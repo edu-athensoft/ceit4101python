@@ -3,10 +3,13 @@ package:    level
 module:     start
 """
 
-import archived.py200622_python2.day11_py200727.game.image.open as imgopen
+import stem1400_modules.module_5_modpack.game.image.open as imgopen
 
 def start():
     print(f"level.start()")
+
+    img = 'map.jpg'
+    imgopen.open(img)
 
     img = 'char.png'
     imgopen.open(img)
@@ -16,4 +19,7 @@ def start():
 
     img = 'img2.png'
     imgopen.open(img)
+
+    # play game
+    print("playing game...")
 
