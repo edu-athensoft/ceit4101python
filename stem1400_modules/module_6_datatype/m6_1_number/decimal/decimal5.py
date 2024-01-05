@@ -1,8 +1,9 @@
 from decimal import Decimal, ROUND_HALF_UP
 
 our_value = Decimal(16.0/7)
-output = Decimal(our_value.quantize(Decimal('.001'), rounding=ROUND_HALF_UP))
+print(our_value)
 
+output = Decimal(our_value.quantize(Decimal('.001'), rounding=ROUND_HALF_UP))
 print(output)
 
 # import decimal

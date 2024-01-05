@@ -23,4 +23,4 @@ print(math.sinh(1))
 print(math.factorial(6))
 
 # Output: gcd stands for Greatest Common Divisor
-print(math.gcd(12,6))
+print(math.gcd(12, 6))
