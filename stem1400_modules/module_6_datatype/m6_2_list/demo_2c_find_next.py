@@ -12,7 +12,7 @@ def find_second_index(lst, element):
 
 
 # Example usage
-numbers = [3, 8, 1, 6, 0, 8, 4]
+numbers = [3, 8, 1, 6, 0, 8, 4, 8, 9, 8]
 target = 8
 print(find_second_index(numbers, target))  # Output: 5
 
