@@ -16,14 +16,17 @@ Hint:	Please save your code in the file naming as stem1401_quiz313_q4_yourname.p
 
 number_item = int(input("How many items did you buy"))
 item_price = 180
-percentage = number_item * 10
-one_item = item_price - item_price / 100 * percentage
-other_item = number_item * item_price - item_price / 100 * percentage
+discount_1 = 0.1
+discount_2 = 0.2
+discount_4 = 0.4
 
-
+subtotal = 0
 if 0 < number_item == 1:
-    print(f"The price is {one_item}$")
+    subtotal = number_item * item_price * (1-discount_1)
 elif 1 < number_item <= 2:
-    print(f"The price is {other_item}$")
+    subtotal = number_item * item_price * (1-discount_2)
 elif 2 < number_item <= 4:
-    print(f"The price is {other_item}$")
+    subtotal = number_item * item_price * (1-discount_4)
+
+# subtotal
+print(f"The subtotal before tax is ${subtotal:.2f}")
