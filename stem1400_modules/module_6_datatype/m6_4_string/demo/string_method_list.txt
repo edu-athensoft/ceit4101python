@@ -1,0 +1,70 @@
+Case-related methods
+capitalize()	converts first character to capital letter
+casefold()		converts to case folded strings
+istitle()		checks for title-cased string
+lower()		    returns lowercase string
+upper()		    returns uppercased string
+title()			returns a title cased string
+swapcase()		swap uppercase characters to lowercase; vice versa
+
+
+
+Find and replace methods
+find()			returns the index of first occurrence of substring
+rfind()		    returns the highest index of substring
+index()		    returns index of substring
+rindex()		returns highest index of substring
+replace()		replaces substring inside
+expandtabs()	replaces tab character with spaces
+
+
+Formatting
+format()		formats string into nicer output
+format_map()	formats the string using dictionary
+center()		pads string with specified character
+ljust()			returns left-justified string of given width
+rjust()			returns right-justified string of given width
+zfill()			returns a copy of the string padded with zeros
+
+
+Split and Join methods
+join()			returns a concatenated string
+strip()			removes both leading and trailing characters
+lstrip()		removes leading characters
+rstrip()		removes trailing characters
+split()			splits string from left
+rsplit()		splits string from right
+splitlines()	splits string at line boundaries
+partition()		returns a tuple
+rpartition()	returns a tuple
+
+Transform methods
+translate()		returns mapped charactered string
+maketrans()	    returns a translation table
+
+
+
+Checking numbers and characters
+isalnum()		checks alphanumeric character
+isdecimal()		checks decimal characters
+isdigit()		checks digit characters
+isnumeric()		checks numeric characters
+
+isalpha()		checks if all characters are alphabets
+isidentifier()	checks for valid identifier
+isprintable()	checks printable character
+isspace()		checks whitespace characters
+
+startswith()	checks if string starts with the specified string
+endswith()		checks if string ends with the specified suffix
+
+islower()		checks if all alphabets in a string are lowercase
+isupper()		returns if all characters are uppercase characters
+
+
+
+Misc
+encode()		returns encoded string of given string
+count()		    returns occurrences of substring in string
+
+
