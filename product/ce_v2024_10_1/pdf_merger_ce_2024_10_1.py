@@ -1,6 +1,14 @@
+"""
+Version: CE V2024.10.1
+Internal version: 2.5.12
+Publishing Date: 2024-oct-3
+Author: Informatique Athensoft Inc.
+"""
+
 import customtkinter
 import os
 import re
+import time
 
 from tkinter import filedialog, Canvas, Scrollbar, VERTICAL, HORIZONTAL
 from tkinter import messagebox
@@ -8,26 +16,9 @@ from tkinter import PhotoImage
 from PyPDF2 import PdfReader, PdfWriter
 from PIL import Image
 
-"""
-class ScrollableTextBoxFrame(customtkinter.CTkScrollableFrame):
-    def __init__(self, master, **kwargs):
-        super().__init__(master, **kwargs)
 
-        # Create a TextBox inside the scrollable frame
-        self.textbox = customtkinter.CTkTextbox(self, width=280)
-        self.textbox.grid(row=0, column=0, padx=(0, 0), pady=(0, 0), sticky="nsew")
-
-        # Optionally populate TextBox with items from the item_list
-        # Insert the provided text into the textbox
-        self.textbox.insert("1.0", "")
-
-        # Make sure the textbox is read-only
-        self.textbox.configure(state="disabled")
-
-        # Configure the scrollable frame to expand
-        self.grid_columnconfigure(0, weight=1)
-        self.grid_rowconfigure(0, weight=1)
-"""
+class FileNameNotValid(Exception):
+    pass
 
 
 class App(customtkinter.CTk):
@@ -36,8 +27,8 @@ class App(customtkinter.CTk):
 
         # ---------------
         # Settings
-        self.title("Athensoft PDF Toolkit - Merger v1.0.0")
-        self.geometry("1020x720+20+20")
+        self.title("Athensoft PDF Merger CE 2024.10.1")
+        self.geometry("1020x720+180+40")
 
         # Set main window grid layout 1x2
         self.grid_rowconfigure(0, weight=1)
@@ -46,7 +37,8 @@ class App(customtkinter.CTk):
         # Set image path
         image_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "images")
 
-        # Set custom icon (.png example, use iconphoto for cross-platform support)
+        # Set custom icon
+        # --- .png example, use iconphoto for cross-platform support
         icon_path = os.path.join(image_path, "logo-roundedsquare-07.png")
         icon_image = PhotoImage(file=icon_path)
         self.iconphoto(True, icon_image)
@@ -54,7 +46,7 @@ class App(customtkinter.CTk):
         # Load images icon on menu
         self.logo_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "logo-roundedsquare-07.png")), size=(26, 26))
         self.large_banner_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "home_banner.png")), size=(768, 150))
-        self.image_icon_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "image_icon_light.png")), size=(20, 20))
+        # self.image_icon_image = customtkinter.CTkImage(Image.open(os.path.join(image_path, "image_icon_light.png")), size=(20, 20))
         self.home_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "home_dark.png")),
                                                  dark_image=Image.open(os.path.join(image_path, "home_light.png")), size=(20, 20))
         self.help_image = customtkinter.CTkImage(light_image=Image.open(os.path.join(image_path, "help_light.png")),
@@ -67,12 +59,23 @@ class App(customtkinter.CTk):
         # Set key button
         self.BUTTON_HOVER_COLOR = "#82eaed"
 
-        # Set the default system desktop path
-        self.desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-        self.default_path = self.desktop_path
+        # Set the default path as system desktop
+        self.DESKTOP_PATH = os.path.join(os.path.expanduser("~"), "Desktop")
+        self.DEFAULT_PATH = self.DESKTOP_PATH
 
         # Set default output pdf filename
-        self.default_filename = "merged_output.pdf"
+        self.DEFAULT_FILENAME = "merged_output.pdf"
+
+        # -------------------------
+        # to hold selected files
+        self.selected_files = []
+
+        # to hold table rows
+        self.table_rows = []
+
+        # to hold status of active row
+        self.active_row_index = None
+
 
         # ------------------
         # Navigation frame
@@ -163,14 +166,19 @@ class App(customtkinter.CTk):
                                                      width=70, state="disabled")
         self.remove_button.grid(row=0, column=3, padx=10, pady=5)
 
+        # Home frame - Button frame top - Label of number of pdf files to merge
+        number_pdfs = len(self.table_rows)
+        # print(f"[TEST] number_pdfs = {number_pdfs}")
+        self.number_of_file_label = customtkinter.CTkLabel(self.button_frame_top, text=f"{number_pdfs} PDF file(s) to merge")
+        self.number_of_file_label.grid(row=0, column=4, padx=10, pady=5)
+
         # Home frame - Scrollable Canvas
-        # bg_color = self.home_frame.cget("bg_color")  # Retrieve the background color of the home_frame
-        # self.canvas = Canvas(self.home_frame, bg=bg_color, highlightthickness=0)
-        # self.canvas = Canvas(self.home_frame, bg="gray90")
+        # --- create a scrollable canvas
         self.canvas = Canvas(self.home_frame, highlightthickness=0)
         self.canvas.grid(row=2, column=0, padx=20, pady=20, sticky="nsew")
+        self.canvas.configure(bg="Gray92")  # Init color
 
-        # Home frame - Scrollbars for Canvas
+        # --- Horizontal and vertical scrollbars
         self.h_scrollbar = Scrollbar(self.home_frame, orient=HORIZONTAL, command=self.canvas.xview)
         self.h_scrollbar.grid(row=3, column=0, sticky="ew")
 
@@ -179,15 +187,19 @@ class App(customtkinter.CTk):
 
         self.canvas.configure(xscrollcommand=self.h_scrollbar.set, yscrollcommand=self.v_scrollbar.set)
 
-        # Home frame - Table frame for table contents
-        self.table_frame = customtkinter.CTkFrame(self.canvas, corner_radius=0, fg_color="transparent")
+        # --- Table frame inside the canvas
+        table_fg_color = self.home_frame.cget("bg_color")
+        self.table_frame = customtkinter.CTkFrame(self.canvas, corner_radius=0, border_width=0, fg_color=table_fg_color,
+                                                  bg_color=table_fg_color)
         self.canvas.create_window((0, 0), window=self.table_frame, anchor="nw")
 
-        # --- ensure the canvas scroll region updates when the table frame changes
+        # --- Bind the table frame's resize event to update the canvas's scroll region
         self.table_frame.bind("<Configure>", lambda e: self.canvas.configure(scrollregion=self.canvas.bbox("all")))
-        # --- bind the scroll event to the canvas for vertical scrolling
+
+        # --- Mouse wheel binding for scrolling
         self.canvas.bind_all("<MouseWheel>", self._on_mousewheel)
-        # --- ensure the frame expands with the window
+
+        # --- Ensure the canvas expands with the window
         self.home_frame.grid_rowconfigure(2, weight=1)
         self.home_frame.grid_columnconfigure(0, weight=1)
 
@@ -238,7 +250,7 @@ class App(customtkinter.CTk):
 
         # Home frame - Home footer frame - status bar
         # --- label to display the current value of save_to_path_entry
-        self.save_to_path_label = customtkinter.CTkLabel(self.home_footer_frame, text="Save to:    "+os.path.join(self.default_path, self.default_filename))
+        self.save_to_path_label = customtkinter.CTkLabel(self.home_footer_frame, text="Save to:    "+os.path.join(self.DEFAULT_PATH, self.DEFAULT_FILENAME))
         self.save_to_path_label.place(x=10, y=-5)
 
         # END OF Home frame
@@ -422,9 +434,9 @@ class App(customtkinter.CTk):
         self.save_to_path_text_label.grid(row=2, column=0, columnspan=4, padx=20, pady=(5, 5), sticky="w")
 
         # Settings frame - Entry save_to_path_entry
-        # --- with the default value as the desktop path (self.default_path)
+        # --- with the default value as the desktop path (self.DEFAULT_PATH)
         self.save_to_path_entry = customtkinter.CTkEntry(self.settings_frame, width=400)
-        self.save_to_path_entry.insert(0, self.default_path)
+        self.save_to_path_entry.insert(0, self.DEFAULT_PATH)
         self.save_to_path_entry.grid(row=3, column=0, padx=20, pady=5, sticky="ew")
         # --- configure the column to expand with the window
         self.settings_frame.grid_columnconfigure(0, weight=1)
@@ -438,15 +450,8 @@ class App(customtkinter.CTk):
         self.settings_button_frame_1.grid(row=4, column=0, columnspan=2, padx=20, pady=5, sticky="ew")
 
         # Settings frame - settings_button_frame - "Reset Folder" button
-        self.reset_folder_button = customtkinter.CTkButton(self.settings_button_frame_1, text="Reset", command=self.reset_folder)
+        self.reset_folder_button = customtkinter.CTkButton(self.settings_button_frame_1, text="Reset to default", command=self.reset_folder)
         self.reset_folder_button.grid(row=0, column=0, padx=(0, 10), pady=5)
-
-        # Settings frame - settings_button_frame - "Go to Home" button
-        # self.go_home_button = customtkinter.CTkButton(self.settings_button_frame_1, text="Back to Home", command=self.show_home_frame,
-        #                                               fg_color=("orange", "orange"),
-        #                                               text_color=("black", "black"),
-        #                                               hover_color=(self.BUTTON_HOVER_COLOR, self.BUTTON_HOVER_COLOR))
-        # self.go_home_button.grid(row=0, column=1, padx=10, pady=5)
 
         # Settings frame - Text title of save_as
         self.save_as_file_text_label = customtkinter.CTkLabel(self.settings_frame, text="2. Editing output pdf file name")
@@ -455,7 +460,7 @@ class App(customtkinter.CTk):
         # Settings frame - Entry save_to_path_entry
         # --- with the default value as merged_output.pdf
         self.save_as_file_entry = customtkinter.CTkEntry(self.settings_frame, width=400)
-        self.save_as_file_entry.insert(0, self.default_filename)
+        self.save_as_file_entry.insert(0, self.DEFAULT_FILENAME)
         self.save_as_file_entry.grid(row=15, column=0, padx=20, pady=5, sticky="ew")
         # --- configure the column to expand with the window
         self.settings_frame.grid_columnconfigure(0, weight=1)
@@ -465,7 +470,7 @@ class App(customtkinter.CTk):
         self.settings_button_frame_2.grid(row=16, column=0, columnspan=2, padx=20, pady=5, sticky="ew")
 
         # Settings frame - settings_button_frame - "Reset Filename" button
-        self.reset_filename_button = customtkinter.CTkButton(self.settings_button_frame_2, text="Reset",
+        self.reset_filename_button = customtkinter.CTkButton(self.settings_button_frame_2, text="Reset to default",
                                                            command=self.reset_filename)
         self.reset_filename_button.grid(row=0, column=0, padx=(0, 10), pady=5)
 
@@ -480,18 +485,8 @@ class App(customtkinter.CTk):
         # END OF Settings frame
         # -------------------------------------------------------------------------
 
-        # -------------------------------------------------------------------------
         # select default frame
         self.select_frame_by_name("home_frame")
-
-        # to hold selected files
-        self.selected_files = []
-
-        # to hold table rows
-        self.table_rows = []
-
-        # to hold status of active row
-        self.active_row_index = None
 
     # --------------------------------------------------
     # main window
@@ -540,7 +535,7 @@ class App(customtkinter.CTk):
 
     def change_appearance_mode_event(self, new_appearance_mode):
         customtkinter.set_appearance_mode(new_appearance_mode)
-        print("[TEST] theme changed.")
+        # print("[TEST] theme changed.")
 
         if new_appearance_mode == "Light":
             self.canvas.configure(bg="Gray92")
@@ -548,9 +543,6 @@ class App(customtkinter.CTk):
         elif new_appearance_mode == "Dark":
             self.canvas.configure(bg="Gray14")
             # self.canvas.configure(bg="red")
-
-        # Set default appearance mode to trigger the initial background color
-        # self.change_appearance_mode_event("Light")
 
     def show_settings_frame(self):
         # Switch to settings_frame
@@ -583,9 +575,21 @@ class App(customtkinter.CTk):
             self.selected_files.extend(selected_files)  # Add multiple files to the list
             self.update_table()
 
+        self.set_number_of_file()
+
+
     def _on_mousewheel(self, event):
         # Method to handle the mouse wheel scrolling
         self.canvas.yview_scroll(int(-1 * (event.delta / 120)), "units")
+
+    def get_number_of_file(self):
+        # get number of pdf files to merge
+        return len(self.table_rows)
+
+    def set_number_of_file(self):
+        # set number of pdf files to merge
+        number_pdfs = self.get_number_of_file()
+        self.number_of_file_label.configure(text=f"{number_pdfs} PDF file(s) to merge")
 
     def update_table(self):
         # Clear existing table rows
@@ -655,6 +659,9 @@ class App(customtkinter.CTk):
         # Update button states based on table content
         self.update_button_states()
 
+        # Refresh number of files to merge
+        self.set_number_of_file()
+
     def move_up(self):
         if self.active_row_index is not None and self.active_row_index > 0:
             # Swap the files in the list and update the table
@@ -694,6 +701,9 @@ class App(customtkinter.CTk):
             self.set_active_row(self.active_row_index)
             self.table_rows[self.active_row_index].winfo_children()[0].select()  # Re-check the checkbox
 
+            # Move the canvas scroll to the top
+            self.canvas.yview_moveto(0.0)  # 0.0 means scroll to the top (1.0 would be the bottom)
+
     def move_to_bottom(self):
         # move the selected line to the bottom of the table
         if self.active_row_index is not None:
@@ -706,6 +716,9 @@ class App(customtkinter.CTk):
             # Re-select the active row and check its checkbox after moving
             self.set_active_row(self.active_row_index)
             self.table_rows[self.active_row_index].winfo_children()[0].select()  # Re-check the checkbox
+
+            # Move the canvas scroll to the bottom
+            self.canvas.yview_moveto(1.0)  # 1.0 means scroll to the bottom (0.0 would be the top)
 
     def update_button_states(self):
         if len(self.table_rows) > 0:
@@ -741,17 +754,17 @@ class App(customtkinter.CTk):
 
     def reset_folder(self):
         # reset the path to default path (as Desktop)
-        # default_path = os.path.join(os.path.expanduser("~"), "Desktop")  # Get the Desktop path again
-        default_path = self.desktop_path  # Get the Desktop path again
+        # DEFAULT_PATH = os.path.join(os.path.expanduser("~"), "Desktop")  # Get the Desktop path again
+        DEFAULT_PATH = self.DESKTOP_PATH  # Get the Desktop path again
         self.save_to_path_entry.delete(0, "end")  # Clear current entry content
-        self.save_to_path_entry.insert(0, default_path)  # Reset to default path
+        self.save_to_path_entry.insert(0, DEFAULT_PATH)  # Reset to default path
         self.update_save_to_path_label()
 
     def reset_filename(self):
         # reset the default output pdf filename
-        default_filename = self.default_filename  # Get the output filename
+        DEFAULT_FILENAME = self.DEFAULT_FILENAME  # Get the output filename
         self.save_as_file_entry.delete(0, "end")  # Clear current entry content
-        self.save_as_file_entry.insert(0, default_filename)  # Reset to default path
+        self.save_as_file_entry.insert(0, DEFAULT_FILENAME)  # Reset to default path
 
     def update_save_to_path_label(self):
         # update the label whenever the value of save_to_path_entry changes
@@ -774,7 +787,7 @@ class App(customtkinter.CTk):
             for pdf in input_pdfs:
                 with open(pdf, 'rb') as file:
                     reader = PdfReader(file)
-                    print(f"[INFO] {pdf} loaded.")
+                    # print(f"[INFO] {pdf} loaded.")
                     for page in reader.pages:
                         merger.add_page(page)
 
@@ -788,20 +801,36 @@ class App(customtkinter.CTk):
             # Get the current output pdf filename from the entry
             merged_pdf_name = self.save_as_file_entry.get()
 
+            # Check if the output filename valid
+            is_valid_filename = self.validate_filename()
+            if not is_valid_filename:
+                raise FileNameNotValid(f"The filename {merged_pdf_name} is not valid.")
+
             # Save merged PDF to the specified path
             save_path = os.path.join(current_path, merged_pdf_name)
+
+            # Add timestamp as suffix if file exists
+            if os.path.exists(save_path):
+                merged_pdf_name_timestamp = self.add_timestamp_to_pdf(merged_pdf_name)
+                save_path = os.path.join(current_path, merged_pdf_name_timestamp)
+                self.save_to_path_label.configure(text="Save to:    " +save_path)
+
             with open(save_path, 'wb') as merged_file:
                 merger.write(merged_file)
 
-            print(f"[INFO] Merged PDF saved to {save_path}")
+            # print(f"[INFO] Merged PDF saved to {save_path}")
             messagebox.showinfo("Message", f"Saved {merged_pdf_name} to {save_path}")
 
         except FileNotFoundError as e:
             # If the path doesn't exist, show an error dialog
             messagebox.showwarning("Invalid Path", str(e))
 
-            # Auto-reset
-            # self.reset_folder()
+            # switch to settings panel
+            self.show_settings_frame()
+
+        except FileNameNotValid as e:
+            # If the filename is not valid, show an error dialog
+            # messagebox.showwarning("Invalid PDF filename", str(e))
 
             # switch to settings panel
             self.show_settings_frame()
@@ -829,6 +858,22 @@ class App(customtkinter.CTk):
 
         # If the filename is valid, return True
         return True
+
+    def add_timestamp_to_pdf(self, filename):
+        # Check if the file has a .pdf extension
+        if filename.endswith(".pdf"):
+            # Get the file name without extension and directory
+            file_name, file_extension = os.path.splitext(filename)
+
+            # Get the current timestamp in the format YYYYMMDD_HHMMSS
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+
+            # Create the new filename by adding the timestamp before the file extension
+            new_filename = f"{file_name}_{timestamp}{file_extension}"
+
+            return new_filename
+        else:
+            raise ValueError("The file must be a .pdf file")
 
 
 if __name__ == "__main__":
