@@ -325,7 +325,7 @@ class App(customtkinter.CTk):
     4. Contact & Support
        If you encounter any issues or need further assistance, please contact our support team:
        Email: inf.athensoft@gmail.com.
-       Website: www.athensoft.com/support
+       Website: www.athensoft.com/product/pdfmerger#support
     """)
 
         # Make sure the textbox is read-only
