@@ -1,0 +1,5 @@
+2024-10-17 10:24:25.549257	[INFO]	event.py 响应时间:140ms log info......1结束
+2024-10-17 10:24:25.549257	[ERROR]	shop_manager.py 响应时间:84ms log info......2结束
+2024-10-17 10:24:25.549257	[INFO]	orders_service.py 响应时间:940ms log info......3结束
+2024-10-17 10:24:25.549257	[INFO]	orders_service.py 响应时间:626ms log info......4结束
+2024-10-17 10:24:25.549257	[INFO]	goods_manager.py 响应时间:330ms log info......5结束

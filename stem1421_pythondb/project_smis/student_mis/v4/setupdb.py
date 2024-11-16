@@ -5,7 +5,7 @@ init database: smis
 import mydbutil as dbutil
 
 DB_NAME = 'smis'
-DB_HOST = "192.168.1.3"
+DB_HOST = "192.168.1.16"
 
 
 def create_db(database=DB_NAME, dbhost=DB_HOST):

@@ -23,3 +23,8 @@
 [DEBUG] Connected successfully! database:smis used.
 [DEBUG] Connected successfully! database:None used.
 [DEBUG] Connected successfully! database:smis used.
+[ERROR] Connection failed!
+[ERROR] Connection failed!
+[ERROR] Connection failed!
+[ERROR] Connection failed!
+[DEBUG] Connected successfully! database:smis used.

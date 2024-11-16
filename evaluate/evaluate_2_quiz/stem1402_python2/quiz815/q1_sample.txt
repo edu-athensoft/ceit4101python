@@ -1,0 +1,5 @@
+2024-10-04 00:53:16,264 - [INFO] - backend_logs_generate_util.py[82]：The writing of the 1th file is completed, the file is: D:\pythonetl\logs\log_monitor\2024-10-04-00-53-16.log, the number of lines: 5
+2024-10-04 00:53:16,265 - [INFO] - backend_logs_generate_util.py[82]：The writing of the 1th file is completed, the file is: D:\pythonetl\logs\log_monitor\2024-10-04-00-53-16.log, the number of lines: 5
+2024-10-04 00:53:16,265 - [INFO] - backend_logs_generate_util.py[82]：The writing of the 1th file is completed, the file is: D:\pythonetl\logs\log_monitor\2024-10-04-00-53-16.log, the number of lines: 5
+2024-10-04 00:53:16,265 - [INFO] - backend_logs_generate_util.py[82]：The writing of the 1th file is completed, the file is: D:\pythonetl\logs\log_monitor\2024-10-04-00-53-16.log, the number of lines: 5
+2024-10-04 00:53:16,265 - [INFO] - backend_logs_generate_util.py[82]：The writing of the 1th file is completed, the file is: D:\pythonetl\logs\log_monitor\2024-10-04-00-53-16.log, the number of lines: 5
