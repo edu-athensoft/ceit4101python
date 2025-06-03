@@ -15,7 +15,7 @@ prizes = ['First Prize', 'Second Prize', 'Third Prize', 'Fourth Prize', 'Fifth P
 weights = [2, 10, 100, 250, 638]
 
 # pull N times
-N = 100
+N = 1000
 draws = random.choices(prizes, weights=weights, k=N)
 
 # output

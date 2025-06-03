@@ -17,7 +17,7 @@ dirlist = os.listdir()
 print(dirlist)
 
 # case 2. list in specified direction
-sourcedir = 'D:\\workspace\\pycharm201803\\ceit4101python\\module_8_fileio'
+sourcedir = 'D:\\workspace\\pycharm201803\\ceit4101python\\stem1400_pythoncore\\module_8_fileio'
 dirlist = os.listdir(sourcedir)
 print(dirlist)
 
